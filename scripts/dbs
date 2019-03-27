@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Delete Branch based on Search
+dbs() {
+  git branch -D $(git branch | grep -i $1)
+}

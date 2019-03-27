@@ -1,0 +1,11 @@
+#!/bin/bash
+
+UUID_LIST=$(nova list | grep `whoami` | awk '{print $2}')
+
+if [ -z "$UUID_LIST" ]; then
+  echo You have no openstack instances open
+else
+  while read UUID; do
+    nova delete $UUID &
+  done <<< "$UUID_LIST"
+fi

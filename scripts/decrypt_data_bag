@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$#" -lt 2 ]; then
+  echo "Need to supply two arguments"
+  return 1
+fi 
+
+knife file decrypt ${1} -Fj --secret-file ~/.chef/encrypted_data_bag_secret > ${2}

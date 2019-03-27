@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Lists the number of OpenStack instances each OSL member is using in our test environment
+# Useful for public shaming over IRC
+
+USERS="$(openstack user list -f value -c Name --project OSL)"
+
+echo User Openstack VM counts are as follows:
+
+nova list >> /tmp/$$vmlist.txt
+
+for name in $USERS; do
+  echo $name: "$(cat /tmp/$$vmlist.txt | grep $name | wc -l)" >> /tmp/OSout.$$
+  done
+
+cat /tmp/OSout.$$ | awk '{print $2,$1}' | sort -hr | awk '{print $2,$1}'
+
+rm /tmp/OSout.$$ 

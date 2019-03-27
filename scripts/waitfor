@@ -1,0 +1,16 @@
+#!/bin/bash
+
+waitfor() {
+    shopt -s expand_aliases
+    while true; do
+        echo "Thank you for being lazy"
+        echo "COMMAND: $2"
+        echo "WATCHED FILES: $(echo $1)"
+# The use of echo here forces the shell to perform globbing and expansions 
+        inotifywait -e modify $(echo $1)
+        echo "EXECUTING COMMAND"    
+        $2  
+        sleep 5
+        clear
+    done
+}

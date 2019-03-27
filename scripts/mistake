@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git commit -a --amend <<EOF
+:wq
+EOF
+git push origin -f HEAD

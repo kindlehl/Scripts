@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Test all kitchen suites in a 
+
+test_everything() {
+  if ! [[ -d ./tests ]]; then
+    mkdir ./tests
+  fi
+  rm -rf tests/*
+  for suite in $(kitchen list | grep -v "^Instance" | awk '{print $1}'); do
+    kitchen test $suite > tests/${suite}.output 2>&1 &
+  done
+}

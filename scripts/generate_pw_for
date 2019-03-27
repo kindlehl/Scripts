@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# function that takes a list of usernames, and resets their passwords with randomly generated passwords, 
+# and puts the password in their homedir must be run as root
+
+for username in "$@"; do
+  pw=$(pwgen 15 1)
+  passwd $username <<EOF
+$pw
+$pw
+EOF
+
+  echo "This is a randomly generated password courtesy of OSUOSL. Please delete this after you change your password " > /home/${username}/password.deleteme
+  echo "$pw" >> /home/${username}/password.deleteme
+done
