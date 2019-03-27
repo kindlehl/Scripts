@@ -45,7 +45,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set number
 set relativenumber
 highlight ColorColumn ctermbg=255,255,255
 let &path.="/usr/include/AL,"
@@ -71,8 +70,8 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 let mapleader = ","
 
-nnoremap <leader>cp :set nonumber<Enter> :set norelativenumber<Enter>
-nnoremap <leader>n :set number<Enter> :set relativenumber<Enter>
+nnoremap <leader>cp :set norelativenumber<Enter>
+nnoremap <leader>n :set relativenumber<Enter>
 
 nnoremap <leader>ev :edit ~/.vimrc<Enter>
 nnoremap <leader>sv :source ~/.vimrc<Enter>
