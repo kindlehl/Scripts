@@ -89,8 +89,10 @@ let mapleader = ","
 nnoremap <leader>cp :set norelativenumber<Enter>
 nnoremap <leader>n :set relativenumber<Enter>
 
-nnoremap <leader>ev :edit ~/.vimrc<Enter>
+nnoremap <leader>ev :tabe ~/.vimrc<Enter>
 nnoremap <leader>sv :source ~/.vimrc<Enter>
+
+nnoremap <leader>S :SyntasticToggleMode<Enter>
 
 nnoremap <leader><leader>h <C-w>h
 nnoremap <leader><leader>j <C-w>J
