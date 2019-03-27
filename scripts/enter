@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if ! [ -d ~/envs/$1/ ]; then
+  echo "You do not have a virtualenv for $1."
+  echo "Would you like to create one? [y/n]"
+  read CREATE_ENV
+fi
+
+if [ "$CREATE_ENV" = "Y" ] || [ "$CREATE_ENV" = "y" ]; then
+  virtualenv ~/envs/$1
+elif [ "$CREATE_ENV" = "N" ] || [ "$CREATE_ENV" = "n" ]; then
+  exit 1
+fi
+
+. ~/envs/$1/bin/activate
