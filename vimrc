@@ -11,6 +11,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'auto-pairs'
 Plugin 'xmledit'
+Plugin 'syntastic'
 Plugin 'tomtom/tcomment_vim', {'rtp': '~/.vim/bundle/tcomment_vim/plugin'}
 
 call vundle#end()            " required
@@ -65,6 +66,21 @@ set pastetoggle=<F11>
 set novisualbell
 map Y y$
 set mouse=""f
+
+" Syntastic Begin
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+autocmd Filetype ruby :set filetype=ruby.chef
+
+" Syntastic End
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
