@@ -53,6 +53,7 @@ alias gcm='git checkout master && git pull'
 alias gl='git log --decorate --color --graph'
 alias grc='git rebase --continue'
 alias grm='git rebase master'
+alias grip='grip -b'
 alias gs='git status'
 alias gb='git branch'
 alias kc='kitchen converge'
@@ -81,13 +82,15 @@ set -o vi
 export KEYTIMEOUT=1
 
 # Adds notice for vim mode [NOMRAL] and [INSERT] depending on shell mode
-function zle-line-init zle-keymap-select {
+function zle-keymap-select() {
     VIM_NORMAL_PROMPT="%{$fg_bold[red]%} [% NORMAL]% %{$reset_color%}"
     VIM_INSERT_PROMPT="%{$fg_bold[yellow]%} [% INSERT]% %{$reset_color%}"
     RPS1="${${KEYMAP/vicmd/$VIM_NORMAL_PROMPT}/(viins|main)/$VIM_INSERT_PROMPT} $EPS1"
     zle reset-prompt
 }
-
+function zle-line-init() {
+  zle-keymap-select
+}
 zle -N zle-line-init
 zle -N zle-keymap-select
 

@@ -82,8 +82,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': []  }
 
 autocmd Filetype ruby :set filetype=ruby.chef
+
+" Disable syntastic on zsh file by default
+autocmd Filetype zsh let g:syntastic_check_on_open = 0
 
 " Syntastic End
 
@@ -97,7 +101,11 @@ nnoremap <leader>n :set relativenumber<Enter>
 nnoremap <leader>ev :tabe ~/.vimrc<Enter>
 nnoremap <leader>sv :source ~/.vimrc<Enter>
 
-nnoremap <leader>S :SyntasticToggleMode<Enter>
+nnoremap <leader>sc :SyntasticCheck<Enter>
+nnoremap <leader>st :SyntasticToggleMode<Enter>
+
+inoremap jk <Esc>
+inoremap kj <Esc>
 
 nnoremap <leader><leader>h <C-w>h
 nnoremap <leader><leader>j <C-w>J
