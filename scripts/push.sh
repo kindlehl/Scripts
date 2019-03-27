@@ -14,5 +14,5 @@ cp ~/.vimrc ~/.setup/vimrc
 cp ~/.zshrc ~/.setup/zshrc
 
 git add --all
-git commit -m "Update from $(date +%F)"
+git commit -m "Update from $(date '+%F at %r')"
 git push origin master
