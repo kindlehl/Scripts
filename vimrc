@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'auto-pairs'
+Plugin 'xmledit'
 Plugin 'tomtom/tcomment_vim', {'rtp': '~/.vim/bundle/tcomment_vim/plugin'}
 
 call vundle#end()            " required
@@ -45,6 +46,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set number
+set relativenumber
 highlight ColorColumn ctermbg=255,255,255
 let &path.="/usr/include/AL,"
 syntax on
@@ -69,10 +71,15 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 let mapleader = ","
 
+nnoremap <leader>cp :set nonumber<Enter> :set norelativenumber<Enter>
+nnoremap <leader>n :set number<Enter> :set relativenumber<Enter>
+
 nnoremap <leader>ev :edit ~/.vimrc<Enter>
 nnoremap <leader>sv :source ~/.vimrc<Enter>
+
 nnoremap <leader><leader>h <C-w>h
 nnoremap <leader><leader>j <C-w>J
 nnoremap <leader><leader>k <C-w>k
 nnoremap <leader><leader>l <C-w>l
+
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration 

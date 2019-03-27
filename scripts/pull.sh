@@ -10,6 +10,7 @@ fi
 
 cd ~/.setup
 
+# This should NEVER overwrite local changes.
 git checkout master
 git pull
 
