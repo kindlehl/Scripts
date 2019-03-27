@@ -6,8 +6,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
+
+" Only use YCM if vim > 7.4
+if v:version > 704
+  Plugin 'Valloric/YouCompleteMe'
+endif
+
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'auto-pairs'
 Plugin 'xmledit'
