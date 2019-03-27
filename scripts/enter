@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# This script creates my python virtual environment layout. 
+# My venvs are in ~/envs, and this script is called as 
+# $ . enter <name of env>
+
+# It will create my envs dir if it doesn't exist, 
+# And it will prompt to create the venv if it does not exist
+# It then sets my shell into the venv create/specified
+
+if ! [ -d ~/envs ]; then
+  mkdir ~/envs
+fi
+
 if ! [ -d ~/envs/$1/ ]; then
   echo "You do not have a virtualenv for $1."
   echo "Would you like to create one? [y/n]"
