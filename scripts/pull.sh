@@ -21,3 +21,12 @@ cp ./scripts/* ~/bin
 # update dotfiles
 cp ~/.setup/vimrc ~/.vimrc
 cp ~/.setup/zshrc ~/.zshrc
+
+
+# Add crontab. ChUnKyMoNkEy is a unique pattern so this should never fail lol
+
+if ! crontab -l | grep ChUnKyMoNkEy; then
+  crontab <<EOF
+0 * * * * ChUnKyMoNkEy='' $HOME/bin/pull.sh
+EOF
+fi
