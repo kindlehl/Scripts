@@ -46,6 +46,7 @@ let g:ycm_confirm_extra_conf = 0
 "
 "
 "END PLUGIN SETTINGS
+set path=.,**
 set exrc
 set tabstop=2
 set shiftwidth=2
@@ -54,7 +55,6 @@ set expandtab
 set relativenumber
 set number
 highlight ColorColumn ctermbg=255,255,255
-let &path.="/usr/include/AL,"
 syntax on
 set hidden
 set wildmenu

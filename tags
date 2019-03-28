@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+args	scripts/dhcp_hosts_gen	/^args = parser.parse_args()$/;"	v
+databag	scripts/dhcp_hosts_gen	/^databag = open(databag_path, 'w')$/;"	v
+databag_contents	scripts/dhcp_hosts_gen	/^databag_contents = json.dumps({$/;"	v
+databag_dir	scripts/dhcp_hosts_gen	/^databag_dir = args.d[0]$/;"	v
+databag_id	scripts/dhcp_hosts_gen	/^databag_id = args.hostname.replace('.','-')$/;"	v
+databag_path	scripts/dhcp_hosts_gen	/^databag_path = os.path.join(databag_dir, databag_id + '.json')$/;"	v
+dbs	scripts/dbs	/^dbs() {$/;"	f
+default	scripts/dhcp_hosts_gen	/^  default=['.\/data_bags\/dhcp_hosts'],$/;"	v
+help	scripts/dhcp_hosts_gen	/^  help='Data bag directory',$/;"	v
+help	scripts/dhcp_hosts_gen	/^  help='Hostname of machine',$/;"	v
+help	scripts/dhcp_hosts_gen	/^  help='IP address',$/;"	v
+help	scripts/dhcp_hosts_gen	/^  help='MAC address',$/;"	v
+metavar	scripts/dhcp_hosts_gen	/^  metavar='DATABAG_DIR',$/;"	v
+nargs	scripts/dhcp_hosts_gen	/^  nargs=1,$/;"	v
+parser	scripts/dhcp_hosts_gen	/^parser = argparse.ArgumentParser(description='Create dhcp databags')$/;"	v
+required	scripts/dhcp_hosts_gen	/^  required=True$/;"	v
+test_everything	scripts/testall	/^test_everything() {$/;"	f
+waitfor	scripts/waitfor	/^waitfor() {$/;"	f
