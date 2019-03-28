@@ -114,3 +114,11 @@ nnoremap <leader><leader>k <C-w>k
 nnoremap <leader><leader>l <C-w>l
 
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration 
+
+"Custom Commands
+
+" Build tag database
+" Use ^] to jump to tag under cursor
+" Use ^t to jump up  tag stack (like the previous button on a browser)
+" Use g^] to for ambiguous tags
+command! MakeTags !ctags -R . 
