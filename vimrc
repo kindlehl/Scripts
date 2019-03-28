@@ -14,6 +14,7 @@ endif
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
 Plugin 'auto-pairs'
 Plugin 'xmledit'
 Plugin 'syntastic'
@@ -107,6 +108,10 @@ nnoremap <leader>st :SyntasticToggleMode<Enter>
 
 inoremap jk <Esc>
 inoremap kj <Esc>
+
+" Move current buffer to new tab. Useful for moving the help menu to another
+" tab if you constantly refer to it
+nnoremap <leader>t <C-W>T
 
 nnoremap <leader><leader>h <C-w>h
 nnoremap <leader><leader>j <C-w>J
