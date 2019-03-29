@@ -11,6 +11,8 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="refined"
 
+plugins=(zsh-autosuggestions)
+
 # source other garbage
 otherscripts=(
   ~/.openstack_secrets
@@ -98,3 +100,6 @@ zle -N zle-keymap-select
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey 'jk' vi-cmd-mode
+bindkey 'kj' vi-cmd-mode
+
+bindkey '^ ' autosuggest-accept
