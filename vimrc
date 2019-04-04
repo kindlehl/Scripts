@@ -114,10 +114,10 @@ inoremap kj <Esc>
 nnoremap <leader>t <C-W>T
 
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>J
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration 
 
