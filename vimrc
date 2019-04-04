@@ -113,10 +113,11 @@ inoremap kj <Esc>
 " tab if you constantly refer to it
 nnoremap <leader>t <C-W>T
 
-nnoremap <leader><leader>h <C-w>h
-nnoremap <leader><leader>j <C-w>J
-nnoremap <leader><leader>k <C-w>k
-nnoremap <leader><leader>l <C-w>l
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>J
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration 
 
