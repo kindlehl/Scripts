@@ -19,6 +19,8 @@ Plugin 'auto-pairs'
 Plugin 'xmledit'
 Plugin 'syntastic'
 Plugin 'tomtom/tcomment_vim', {'rtp': '~/.vim/bundle/tcomment_vim/plugin'}
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -36,6 +38,8 @@ filetype plugin on
 "PLUGIN SETTINGS
 "
 "
+let g:AutoPairsMapSpace = 0
+
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
@@ -44,6 +48,14 @@ let g:indent_guides_color_change_percent = 3
 " verification
 let g:ycm_confirm_extra_conf = 0
 
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"
+" " If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 "
 "
 "END PLUGIN SETTINGS
@@ -97,6 +109,8 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 let mapleader = ","
 
+ab exp expect(chef_run).to
+
 nnoremap <leader>cp :set norelativenumber nonumber<Enter>
 nnoremap <leader>n :set relativenumber number<Enter>
 
@@ -106,22 +120,23 @@ nnoremap <leader>sv :source ~/.vimrc<Enter>
 nnoremap <leader>sc :SyntasticCheck<Enter>
 nnoremap <leader>st :SyntasticToggleMode<Enter>
 
+" pressing j and k in insert or command mode returns back to normal mode
 inoremap jk <Esc>
 inoremap kj <Esc>
+cnoremap jk <Esc>
+cnoremap kj <Esc>
 
 " Move current buffer to new tab. Useful for moving the help menu to another
 " tab if you constantly refer to it
 nnoremap <leader>t <C-W>T
 
-
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nmap ; :
 
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration 
-
-"Custom Commands
 
 " Build tag database
 " Use ^] to jump to tag under cursor

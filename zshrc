@@ -39,7 +39,6 @@ fi
 #Environment Variable definitions export EDITOR='/usr/bin/vim' export VISUAL='/usr/bin/vim'
 export PATH="$HOME/bin:/usr/local/bin:/opt/kitchen/bin:$PATH"
 export TERM="xterm-256color"
-export CACA_DRIVER="ncurses"
 
 force_color_prompt=yes
 
