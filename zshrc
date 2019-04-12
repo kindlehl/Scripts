@@ -37,7 +37,7 @@ if which chef > /dev/null; then
 fi
 
 #Environment Variable definitions export EDITOR='/usr/bin/vim' export VISUAL='/usr/bin/vim'
-export PATH="$HOME/bin:/usr/local/bin:/opt/kitchen/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/bin:/usr/local/bin:/opt/kitchen/bin:$PATH"
 export TERM="xterm-256color"
 
 force_color_prompt=yes

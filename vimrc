@@ -68,6 +68,7 @@ set expandtab
 set relativenumber
 set number
 highlight ColorColumn ctermbg=255,255,255
+colorscheme slate
 syntax on
 set hidden
 set wildmenu
@@ -123,8 +124,8 @@ nnoremap <leader>st :SyntasticToggleMode<Enter>
 " pressing j and k in insert or command mode returns back to normal mode
 inoremap jk <Esc>
 inoremap kj <Esc>
-cnoremap jk <Esc>
-cnoremap kj <Esc>
+cnoremap jk <CR>
+cnoremap kj <CR>
 
 " Move current buffer to new tab. Useful for moving the help menu to another
 " tab if you constantly refer to it
