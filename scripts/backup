@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+  echo "Please supply a file or directory to backup"
+  exit 1
+fi
+
+EXP_PATH=$(readlink -f $1)
+
+if [ -d $EXP_PATH ] || [ -f $EXP_PATH ]; then
+  cp -R "$EXP_PATH" "${EXP_PATH}.bak"
+else
+  echo "No such file or directory $EXP_PATH"
+  exit 1
+fi
