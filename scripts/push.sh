@@ -12,7 +12,7 @@ cp ~/bin/* ./scripts
 # update dotfiles
 cp ~/.vimrc ~/.setup/vimrc
 cp ~/.zshrc ~/.setup/zshrc
-cp -R ~/.oh-my-zsh ~/.setup/oh-my-zsh
+cp -R ~/.oh-my-zsh/themes/refined ~/.setup/refined
 
 git add --all
 git commit -m "Update from $(date '+%F at %r')"

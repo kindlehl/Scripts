@@ -22,4 +22,4 @@ cp ./scripts/* ~/bin
 # update dotfiles
 cp ~/.setup/vimrc ~/.vimrc
 cp ~/.setup/zshrc ~/.zshrc
-cp -R ~/.setup/oh-my-zsh ~/.oh-my-zsh
+cp -R ~/.setup/refined ~/.oh-my-zsh/themes/refined
