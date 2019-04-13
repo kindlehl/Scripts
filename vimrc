@@ -130,8 +130,6 @@ cnoremap kj <CR>
 " Move current buffer to new tab. Useful for moving the help menu to another
 " tab if you constantly refer to it
 nnoremap <leader>t <C-W>T
-" toggle pasting mode
-nnoremap <leader>p :set paste!<CR>
 
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

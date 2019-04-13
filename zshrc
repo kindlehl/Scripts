@@ -81,7 +81,7 @@ HISTCONTROL=ignoreboth
 
 # Vi mode settings
 set -o vi
-export KEYTIMEOUT=40
+export KEYTIMEOUT=1
 
 # Adds notice for vim mode [NOMRAL] and [INSERT] depending on shell mode
 function zle-keymap-select() {
