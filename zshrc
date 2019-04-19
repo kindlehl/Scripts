@@ -37,7 +37,7 @@ if which chef > /dev/null; then
 fi
 
 #Environment Variable definitions export EDITOR='/usr/bin/vim' export VISUAL='/usr/bin/vim'
-export PATH="$HOME/.cabal/bin:$HOME/bin:/usr/local/bin:/opt/kitchen/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/bin:$HOME/bin/scripts:/usr/local/bin:/opt/kitchen/bin:$PATH"
 export TERM="xterm-256color"
 
 force_color_prompt=yes
@@ -81,7 +81,7 @@ HISTCONTROL=ignoreboth
 
 # Vi mode settings
 set -o vi
-export KEYTIMEOUT=1
+export KEYTIMEOUT=10
 
 # Adds notice for vim mode [NOMRAL] and [INSERT] depending on shell mode
 function zle-keymap-select() {
@@ -103,3 +103,5 @@ bindkey 'jk' vi-cmd-mode
 bindkey 'kj' vi-cmd-mode
 
 bindkey '^ ' autosuggest-accept
+
+bindkey '^e' edit-command-line

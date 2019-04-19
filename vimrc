@@ -86,6 +86,7 @@ set pastetoggle=<F11>
 set novisualbell
 map Y y$
 set mouse=""f
+set textwidth=120
 
 " Syntastic Begin
 
