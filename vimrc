@@ -7,10 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 
-" Only use YCM if vim > 7.4
-if v:version > 704
-  Plugin 'Valloric/YouCompleteMe'
-endif
+Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -144,4 +141,4 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration
 " Use ^] to jump to tag under cursor
 " Use ^t to jump up  tag stack (like the previous button on a browser)
 " Use g^] to for ambiguous tags
-command! MakeTags !ctags -R . 
+command! MakeTags !ctags -R $(find . -type f)

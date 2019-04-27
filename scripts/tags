@@ -1,0 +1,23 @@
+$	scripts/getips	/^  echo $name -\\> $(dig +short $name)$/
+A	scripts/qemu-system-i386	1820
+Bf‰	scripts/qemu-system-i386	1839
+EXP_PATH	scripts/backup	8
+H9Ð	scripts/qemu-system-i386	3474
+TUTORCOPY	vimtutor	43
+USERS	scripts/blame	6
+UUID_LIST	scripts/opendelete	3
+VIM	vimtutor	58
+VIM	vimtutor	66
+dbs	scripts/dbs	/^dbs() {$/
+indent	scripts/dhcp_hosts_gen	48
+j	scripts/qemu-system-i386	359
+parser	scripts/dhcp_hosts_gen	6
+pw	scripts/generate_pw_for	7
+seq	vimtutor	15
+seq	vimtutor	19
+test_everything	scripts/testall	/^test_everything() {$/
+testvim	vimtutor	56
+tmpdir	vimtutor	33
+u	scripts/qemu-system-i386	4
+u±H	scripts/qemu-system-i386	2021
+waitfor	scripts/waitfor	/^waitfor() {$/
