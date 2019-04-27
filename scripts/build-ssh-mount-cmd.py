@@ -41,4 +41,4 @@ args = parser.parse_args()
 args = {k: v for k,v in vars(args).items() if v != None}
 options.update(args)
 
-sys.stdout.write("sudo sshfs -o allow_other,defer_permissions,IdentityFile={} {}@{}:{} {}".format(options['identity_file'], options['user'], options['host'], options['remote_dir'], options['local_dir']))
+sys.stdout.write("sudo sshfs -o allow_other,IdentityFile={} {}@{}:{} {}".format(options['identity_file'], options['user'], options['host'], options['remote_dir'], options['local_dir']))
