@@ -60,6 +60,7 @@ let g:UltiSnipsEditSplit="vertical"
 "
 "END PLUGIN SETTINGS
 set path=.,**
+set fileencodings=utf-8
 set exrc
 set tabstop=2
 set shiftwidth=2
