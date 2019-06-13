@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# I got very tired when decomissioning machines or services, I have to run git
+# grep, then I would have to pipe things through cut or awk to cut the list of
+# files down so I could then subshell the filenames into vim to :g/<pattern>/d
+# or edit at a higher level of detail. This allows me to just look at the 
+# filenames that match, or I can edit them as well. I estimate this will save me
+# a few minutes in the long run, even though it took me 5 minutes to figure out
+# the getopts syntax again.
+
+while getopts "eh" opt; do
+  case $opt in
+    e)  
+      EDIT=true
+      ;;  
+    h)  
+      echo "ggrep: Grep for content in a git repo, list all files that match.\n-e    edit files that are matched"
+      ;;  
+    *)  
+      echo "Invalid Syntax $0 $@" >&2
+      ;;  
+  esac
+done
+
+MATCHES=$(git --no-pager grep -P "$1" | cut -d':' -f 1 | sort | uniq)
+
+if [ $EDIT ]; then
+  $EDITOR $MATCHES
+else
+  echo "$MATCHES"
+fi
