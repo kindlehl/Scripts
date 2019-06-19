@@ -105,3 +105,5 @@ bindkey 'kj' vi-cmd-mode
 bindkey '^ ' autosuggest-accept
 
 bindkey '^e' edit-command-line
+
+ulimit -n 5120
