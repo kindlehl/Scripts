@@ -106,4 +106,6 @@ bindkey '^ ' autosuggest-accept
 
 bindkey '^e' edit-command-line
 
+# Needed for ansible
 ulimit -n 5120
+export ANSIBLE_NOCOWS=1
