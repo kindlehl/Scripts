@@ -11,15 +11,19 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="refined"
 
-plugins=(zsh-autosuggestions)
+#Environment Variable definitions export EDITOR='/usr/bin/vim' export VISUAL='/usr/bin/vim'
+export PATH="$HOME/.cabal/bin:$HOME/bin:$HOME/bin/scripts:/usr/local/bin:/opt/kitchen/bin:$PATH"
+export TERM="xterm-256color"
+
+curl -L git.io/antigen > ~/.antigen.zsh
 
 # source other garbage
 otherscripts=(
+  ~/.antigen.zsh
   ~/.openstack_secrets
   ~/.work_secretsrc
   ~/.work_specific
   $ZSH/oh-my-zsh.sh
-  ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 )
 
 for script in "$otherscripts[@]"; do
@@ -28,17 +32,26 @@ for script in "$otherscripts[@]"; do
   fi
 done
 
+# Install plugins
+plugins="zsh-users/zsh-autosuggestions"
+
+antigen use oh-my-zsh
+
+for plugin in $plugins; do
+  antigen bundle $plugin
+done
+
+antigen theme robbyrussell
+antigen apply
+
 if which vim > /dev/null; then
   export EDITOR=vim
 fi
 
-if which chef 2>&1 > /dev/null; then
+if command -v chef; then
   eval "$(chef shell-init zsh)"
 fi
 
-#Environment Variable definitions export EDITOR='/usr/bin/vim' export VISUAL='/usr/bin/vim'
-export PATH="$HOME/.cabal/bin:$HOME/bin:$HOME/bin/scripts:/usr/local/bin:/opt/kitchen/bin:$PATH"
-export TERM="xterm-256color"
 
 force_color_prompt=yes
 
@@ -107,5 +120,6 @@ bindkey '^ ' autosuggest-accept
 bindkey '^e' edit-command-line
 
 # Needed for ansible
+
 ulimit -n 5120
 export ANSIBLE_NOCOWS=1
