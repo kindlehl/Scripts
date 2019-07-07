@@ -87,6 +87,9 @@ alias project='vim -S $PROJECT_DIR/Session.vim'
 alias resume='vim -S Session.vim'
 alias rs='. ~/.bashrc'
 alias sshstart='eval $(ssh-agent)'
+alias vu='vagrant up'
+alias vd='vagrant destroy -f'
+alias vp='vagrant provision'
 
 if [ -f ~/.msg ]; then
   cat ~/.msg
