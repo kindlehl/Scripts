@@ -32,7 +32,7 @@ if which vim > /dev/null; then
   export EDITOR=vim
 fi
 
-if which chef > /dev/null; then
+if which chef 2>&1 > /dev/null; then
   eval "$(chef shell-init zsh)"
 fi
 
