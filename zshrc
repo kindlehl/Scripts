@@ -15,7 +15,9 @@ ZSH_THEME="refined"
 export PATH="$HOME/.cabal/bin:$HOME/bin:$HOME/bin/scripts:/usr/local/bin:/opt/kitchen/bin:$PATH"
 export TERM="xterm-256color"
 
-curl -L git.io/antigen > ~/.antigen.zsh
+if ! test -f ~/.antigen.zsh; then
+  curl -L git.io/antigen > ~/.antigen.zsh
+fi
 
 # source other garbage
 otherscripts=(
@@ -33,22 +35,22 @@ for script in "$otherscripts[@]"; do
 done
 
 # Install plugins
-plugins="zsh-users/zsh-autosuggestions"
+plugins=(zsh-users/zsh-autosuggestions sparsick/ansible-zsh)
 
 antigen use oh-my-zsh
 
-for plugin in $plugins; do
+for plugin in "$plugins[@]"; do
+  echo $plugin
   antigen bundle $plugin
 done
 
-antigen theme robbyrussell
 antigen apply
 
-if which vim > /dev/null; then
+if command -v vim &>/dev/null; then
   export EDITOR=vim
 fi
 
-if command -v chef; then
+if command -v chef &>/dev/null; then
   eval "$(chef shell-init zsh)"
 fi
 
