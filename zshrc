@@ -12,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="refined"
 
 #Environment Variable definitions export EDITOR='/usr/bin/vim' export VISUAL='/usr/bin/vim'
-export PATH="$HOME/.cabal/bin:$HOME/bin:$HOME/bin/scripts:/usr/local/bin:/opt/kitchen/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/bin:$HOME/bin/scripts:/usr/local/bin:/opt/kitchen/bin:$PATH:/var/lib/snapd/snap/bin"
 export TERM="xterm-256color"
 
 if ! test -f ~/.antigen.zsh; then
@@ -90,6 +90,7 @@ alias sshstart='eval $(ssh-agent)'
 alias vu='vagrant up'
 alias vd='vagrant destroy -f'
 alias vp='vagrant provision'
+alias vs='vagrant ssh'
 
 if [ -f ~/.msg ]; then
   cat ~/.msg

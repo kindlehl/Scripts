@@ -2,11 +2,18 @@
 
 if ! [ -d ./.git ]; then
   echo "You are not in a git repository" 1>&2
+  exit 1
+fi
+
+if [ -z $1 ]; then
+  BASE_BRANCH=master
+else
+  BASE_BRANCH="$1"
 fi
 
 BRANCH=$(git branch | grep '^\*' | cut -d' ' -f 2)
 
-git checkout master
+git checkout $BASE_BRANCH
 git pull
 git checkout $BRANCH
-git rebase master
+git rebase $BASE_BRANCH
