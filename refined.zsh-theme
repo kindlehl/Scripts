@@ -51,7 +51,7 @@ repo_information() {
   if [[ -n $SSH_CONNECTION ]]; then
     PROMPT_HEADER_SSH='ssh://'
   fi
-  echo "%F{yellow}${PROMPT_HEADER_SSH}${USER}@$(hostname):$(dirs | awk '{print $1}') %F{8}$vcs_info_msg_1_`git_dirty` $vcs_info_msg_2_%f"
+  echo "%F{yellow}${PROMPT_HEADER_SSH}$(hostname):$(dirs | awk '{print $1}') %F{8}$vcs_info_msg_1_`git_dirty` $vcs_info_msg_2_%f"
 }
 
 # Displays the exec time of the last command if set threshold was exceeded

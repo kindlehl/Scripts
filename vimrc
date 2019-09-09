@@ -21,6 +21,8 @@ Plugin 'syntastic'
 Plugin 'tomtom/tcomment_vim', {'rtp': '~/.vim/bundle/tcomment_vim/plugin'}
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

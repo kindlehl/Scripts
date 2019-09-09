@@ -11,21 +11,15 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="refined"
 
-#Environment Variable definitions export EDITOR='/usr/bin/vim' export VISUAL='/usr/bin/vim'
-export PATH="$HOME/.cabal/bin:$HOME/bin:$HOME/bin/scripts:/usr/local/bin:/opt/kitchen/bin:$PATH:/var/lib/snapd/snap/bin"
-export TERM="xterm-256color"
-
-if ! test -f ~/.antigen.zsh; then
-  curl -L git.io/antigen > ~/.antigen.zsh
-fi
+plugins=(zsh-autosuggestions)
 
 # source other garbage
 otherscripts=(
-  ~/.antigen.zsh
   ~/.openstack_secrets
   ~/.work_secretsrc
   ~/.work_specific
   $ZSH/oh-my-zsh.sh
+  ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 )
 
 for script in "$otherscripts[@]"; do
@@ -34,26 +28,17 @@ for script in "$otherscripts[@]"; do
   fi
 done
 
-# Install plugins
-plugins=(zsh-users/zsh-autosuggestions sparsick/ansible-zsh)
-
-antigen use oh-my-zsh
-
-for plugin in "$plugins[@]"; do
-  echo $plugin
-  antigen bundle $plugin
-done
-
-antigen apply
-
-if command -v vim &>/dev/null; then
+if which vim > /dev/null; then
   export EDITOR=vim
 fi
 
-if command -v chef &>/dev/null; then
+if which chef > /dev/null; then
   eval "$(chef shell-init zsh)"
 fi
 
+#Environment Variable definitions export EDITOR='/usr/bin/vim' export VISUAL='/usr/bin/vim'
+export PATH="$HOME/.cabal/bin:$HOME/bin:$HOME/bin/scripts:/usr/sbin:/usr/local/bin:/opt/kitchen/bin:$PATH"
+export TERM="xterm-256color"
 
 force_color_prompt=yes
 
@@ -72,6 +57,8 @@ alias grc='git rebase --continue'
 alias grm='git rebase master'
 alias grip='grip -b'
 alias gs='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
 alias gb='git branch'
 alias kc='kitchen converge'
 alias kd='kitchen destroy'
@@ -79,18 +66,19 @@ alias ke="kitchen exec $command"
 alias kl='kitchen login'
 alias kt='kitchen test'
 alias kv='kitchen verify'
+alias vd='vagrant destroy -f'
+alias vp='vagrant provision'
+alias vs='vagrant ssh'
+alias vu='vagrant up'
 alias la='ls -A'
 alias ll='ls -alF'
 alias l='ls -CF'
+alias openvpn='openvpn --auth-retry interact'
 alias nb='git checkout master && git pull origin master && git checkout -b'
 alias project='vim -S $PROJECT_DIR/Session.vim'
 alias resume='vim -S Session.vim'
 alias rs='. ~/.bashrc'
 alias sshstart='eval $(ssh-agent)'
-alias vu='vagrant up'
-alias vd='vagrant destroy -f'
-alias vp='vagrant provision'
-alias vs='vagrant ssh'
 
 if [ -f ~/.msg ]; then
   cat ~/.msg
@@ -120,12 +108,12 @@ bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey 'jk' vi-cmd-mode
 bindkey 'kj' vi-cmd-mode
+bindkey -M viins '\e.' insert-last-word
 
 bindkey '^ ' autosuggest-accept
 
 bindkey '^e' edit-command-line
 
 # Needed for ansible
-
 ulimit -n 5120
 export ANSIBLE_NOCOWS=1
