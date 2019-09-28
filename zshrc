@@ -20,6 +20,7 @@ otherscripts=(
   ~/.work_specific
   $ZSH/oh-my-zsh.sh
   ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+  ~/.screenlayout/$(hostname)
 )
 
 for script in "$otherscripts[@]"; do

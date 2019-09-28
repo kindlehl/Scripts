@@ -23,6 +23,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'hashivim/vim-terraform'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -90,19 +91,11 @@ map Y y$
 set mouse=""f
 set textwidth=120
 
-" Syntastic Begin
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': []  }
+set statusline=PATH:\ %r%F\ \ \ \ \LINE:\ %l/%L/%P\ \ \ \ \ \ \ TIME:\ %{strftime('%c')}
 
 autocmd Filetype ruby :set filetype=ruby.chef
+
+autocmd Filetype jinja2 let g:AutoPairs = { '%':'%', '(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
 
 " Disable syntastic on zsh file by default
 autocmd Filetype zsh let g:syntastic_check_on_open = 0
@@ -139,6 +132,10 @@ nnoremap <C-l> <C-w>l
 nmap ; :
 
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration 
+
+" Save session on write quit all
+command! Wq mksession! | xa
+
 
 " Build tag database
 " Use ^] to jump to tag under cursor
